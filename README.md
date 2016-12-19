@@ -73,6 +73,24 @@ db.once("open", function(){
 连接数据库成功以后会在命令行打印出`database content success`
 
 ```
-curl -H "application/json" -X POST -d '{title:"hello",content:"ndihd"}' localhost:6060/posts
+curl -H 'Content-Type: application/json' -X POST -d '{"title":"Hello", "content": "hello content"}' localhost:6060/posts
+```
+### 创建数据库模型 modles/User.js
+    `js文件名一定要使用单数，取名方式多是使用数据库集合的名字`
 
+```
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;//schema概要的意思
+
+const UserSchema = new Schema(
+  {
+    title: { type: String },
+    content:{type: String }
+  }
+);
+//创建集合users ，集合名首字母大写。不需要进入数据库手动创建。
+module.exports = mongoose.model('User', UserSchema);//module模块的意思
+//User会自动对应数据库中的 users 这个集合，
+//如果这里是，Apple 那就会对应 apples 集合，
+//如果这里是，Person 那就会对应 people 集合。
 ```
