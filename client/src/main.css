@@ -3,9 +3,115 @@
   padding: 0;
   box-sizing: border-box;
 }
+.maxBig-wrap{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.header,.footer{
+  width: 100%;
+  height: 80px;
+  background-color: #ff5722;
+  text-align: center;
+  font-size: 24px;
+  line-height:80px;
+  color: #fff;
+}
+ .contents{
+   flex-grow: 1;
+ }
 .content-wrap{
-   width: 100%;
-   height: auto;
-   margin-bottom: 10px;
-   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+   margin:10px;
+   box-shadow: rgba(20, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 20, 0.12) 0px 1px 4px;
+}
+.post-card{
+   text-decoration: none;
+   color: #ff5722;
+ }
+.details{
+  text-align: center;
+  box-shadow: rgba(20, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 20, 0.12) 0px 1px 4px;
+  margin: 10px;
+}
+.write{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  margin: 10px;
+  background-color: #ff5722;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #fff;
+}
+.post-write{
+  text-decoration: none;
+  color:#000;
+}
+.form-wrapper {
+  margin: 10px auto;
+  width: 100%;
+}
+form {
+  padding: 20px 40px;
+}
+label {
+  display: block;
+  font-size: 0.9em;
+  color: #ff5722;
+  padding-bottom: 10px;
+}
+select {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  height: 30px;
+  background-color: #fff;
+}
+input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.write-content{
+  height: 240px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+input:focus {
+  border: 1px solid #00bcd4;
+  outline: none;
+}
+.actions {
+  text-align: center;
+}
+button {
+  width: 100px;
+  height: 36px;
+  border: none;
+  background-color: #ff5722;
+  font-size: 1em;
+  color: #fff;
+  display: inline-block;
+  margin: 20px auto 0;
+  border-radius: 20px;
+}
+button:hover {
+    cursor: pointer;
+}
+button:focus {
+    outline: none;
+}
+.cancel {
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 1em;
+  color: #ff5722;
+  opacity: .8;
+  text-decoration: none;
 }

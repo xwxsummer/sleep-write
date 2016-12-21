@@ -28,7 +28,9 @@ app.get('/posts', function(req, res) {
 });
 
 app.get('/posts/:id', function(req, res){
-  res.send('read one postaaaaaaaaa');
+  Post.findById({_id:req.params.id}, function(err,post){
+    res.json({post});
+  })
 })
 
 app.put('/posts/:id', function(req, res){
