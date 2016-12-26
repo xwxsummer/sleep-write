@@ -21,8 +21,12 @@ class Home extends Component {
           {this.state.posts.map((item,i)=>
             <div key={i} className='content-wrap'>
               <h3>{item.title}</h3>
-              <p>{item.content.substr(0,20)}......</p>
+              <p>{item.content.substr(0,17)}......</p>
+              <div className="links">
               <Link to={`/posts/${item._id}`} className='post-card'>查看详细</Link>
+              <Link to={`/edit/${item._id}`} title={item.title} content={item.content} className='post-card'>修改</Link>
+              <Link to={`/posts/${item._id}`}  className='post-card'>删除</Link>
+            </div>
             </div>
           )}
         </div>

@@ -14,16 +14,13 @@ app.post('/posts', function (req,res) {
   post.content = req.body.content;
   post.save(function(){
     console.log('post saved!');
+    res.json({message:"操作成功了！"});
   });
 })
 
 app.get('/posts', function(req, res) {
   Post.find().exec(function(err, posts) {
     res.json({ posts: posts })
-    /*  let ss = titles.map(item =>item.title) ;
-      console.log(ss);
-      res.json(ss);
-    */
   });
 });
 
@@ -34,6 +31,11 @@ app.get('/posts/:id', function(req, res){
 })
 
 app.put('/posts/:id', function(req, res){
+
+  console.log(req.body)
+  Post.findOneAndUpdate({_id:req.params.id},req.body,function(err){
+    if(err)res.status(500).json({error:"更新失败"})
+  })
   res.send('update a post!');
 })
 

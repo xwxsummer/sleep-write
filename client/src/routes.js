@@ -4,6 +4,7 @@ import App from './components/App';
 import Home from './components/Home';
 import Post from './components/Post';
 import New from './components/New';
+import Edit from './components/Edit';
 
 const Routes = () => (
       <Router history={browserHistory}>
@@ -11,6 +12,7 @@ const Routes = () => (
           <IndexRoute component={Home} />
           <Route path='/posts/:id' component={ Post } />
           <Route path='/new' component={ New } />
+          <Route path='/edit/:id' component={ Edit } />
         </Route>
       </Router>
 )

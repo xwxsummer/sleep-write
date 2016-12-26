@@ -19,14 +19,20 @@
 }
  .contents{
    flex-grow: 1;
+   overflow: scroll;
  }
 .content-wrap{
    margin:10px;
    box-shadow: rgba(20, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 20, 0.12) 0px 1px 4px;
 }
+.links{
+  display: flex;
+  justify-content: flex-end;
+}
 .post-card{
    text-decoration: none;
    color: #ff5722;
+   margin-right: 20px;
  }
 .details{
   text-align: center;
@@ -83,8 +89,12 @@ input {
   border-radius: 5px;
   border: 1px solid #ddd;
 }
+.write-content:focus {
+  border: 1px solid #ddd;
+  outline: none;/*outline （轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。*/
+}
 input:focus {
-  border: 1px solid #00bcd4;
+  border: 1px solid #ddd;
   outline: none;
 }
 .actions {
