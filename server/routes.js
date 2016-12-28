@@ -2,7 +2,7 @@ const Post = require('./models/Post');
 
 module.exports = function(app) {
 
-app.get('/', function(req, res){
+ app.get('/', function(req, res){
   res.send('hello world')
 })
 
@@ -24,23 +24,26 @@ app.get('/posts', function(req, res) {
   });
 });
 
-app.get('/posts/:id', function(req, res){
+ app.get('/posts/:id', function(req, res){
   Post.findById({_id:req.params.id}, function(err,post){
     res.json({post});
   })
 })
 
-app.put('/posts/:id', function(req, res){
-
-  console.log(req.body)
+  app.put('/posts/:id', function(req, res){
   Post.findOneAndUpdate({_id:req.params.id},req.body,function(err){
     if(err)res.status(500).json({error:"更新失败"})
   })
   res.send('update a post!');
 })
 
-app.delete('/posts/:id', function(req, res){
-  res.send('delete a post!');
-})
-
+  app.delete('/posts/:id', function(req, res){
+    Post.findById({_id:req.params.id},function(err,post){
+      if(err) return res.status(500).json({error:err.massage});
+      post.remove(function(err){
+        if(err) return res.status(500).json({error:err.massage});
+        res.json({massage:"文章已经被删除了"})
+      })
+    })
+  })
 }

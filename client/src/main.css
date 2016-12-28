@@ -31,8 +31,12 @@
 }
 .post-card{
    text-decoration: none;
+   cursor: pointer;
    color: #ff5722;
    margin-right: 20px;
+ }
+ .delete-btn{
+
  }
 .details{
   text-align: center;
