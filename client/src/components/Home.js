@@ -2,30 +2,32 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Link} from 'react-router';
 import filter from 'lodash/fp/filter';
+import DeletePost from './DeletePost';
 
 class Home extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state={
-      posts:[]
+      posts:[],
+      id :''
     }
   }
   componentDidMount(){
     axios.get('http://localhost:6060/posts')
     .then(res=>this.setState({posts:res.data.posts}))
   }
-  handleClick(id) {
-   console.log('handleClick.' + id);
-   axios.delete(`http://localhost:6060/posts/${id}`)
-   .then(this.filterPost(id))
 
- }
-filterPost(id){
+   handleClick(value) {
+     this.setState({id: value});
+     this.refs.dialog.handleOpen();
+  }
+
+filterPosts(id){
    const posts = filter((post) => {
      return post._id !== id
-   }, this.state.data);
+   }, this.state.posts);
 
-   this.setState({ data: posts });
+   this.setState({ posts: posts });
  }
 
   render(){
@@ -40,12 +42,12 @@ filterPost(id){
               <div className="links">
               <Link to={`/posts/${item._id}`} className='post-card'>详情</Link>
               <Link to={`/edit/${item._id}`} title={item.title} content={item.content} className='post-card'>修改</Link>
-              <div  className='post-card delete-btn' onClick={this.handleClick.bind(this,item._id)}>删除</div>
+              <Link to='' className='post-card delete-btn' onClick={this.handleClick.bind(this,item._id)}>删除</Link>
             </div>
             </div>
           )}
         </div>
-
+        <DeletePost id={this.state.id} removePosts={this.filterPosts.bind(this)} ref='dialog' />
       </div>
     )
   }

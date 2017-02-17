@@ -33,8 +33,6 @@ export default class Edit extends React.Component {
       console.log(title+content)
     axios.put(`http://localhost:6060/posts/${this.props.params.id}`, {title, content})
          .then((res) =>{
-           console.log(res);
-           alert("修改成功")
            this.props.router.push('/')}
          )
          .catch((error) => console.log(error))

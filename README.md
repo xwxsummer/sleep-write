@@ -1,3 +1,15 @@
+项目启动步骤：
+
+- 前端
+  - cd client
+  - npm i
+  - npm start (项目启动在3000端口)
+- 后台
+  - cd server
+  - npm i
+  - mongod --dbpath=./data/db 启动数据库
+  - nodemon index.js
+
 ### 仓库创建
 
 - 在github上创建一仓库：sleep-write

@@ -17,7 +17,6 @@ class New extends Component {
     let content = this.refs.content.value;
     axios.post('http://localhost:6060/posts', {title, content})
          .then((res) =>{
-           alert(res.data.message);
            this.props.router.push('/')}
          )
          .catch((error) => console.log(error))
